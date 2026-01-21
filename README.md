@@ -64,8 +64,19 @@ opencode # https://github.com/opencode-org/opencode
 
 Run the setup wizard to configure your AI models:
 
+**Linux / macOS:**
 ```bash
 ./setup.sh
+```
+
+**Windows (Command Prompt):**
+```cmd
+setup.bat
+```
+
+**Windows (PowerShell):**
+```powershell
+.\setup.ps1
 ```
 
 The wizard will prompt you to:
@@ -84,9 +95,38 @@ The wizard will prompt you to:
 
 Configuration is saved to `~/.config/llm-council/agents.json`
 
-You can re-run `./setup.sh` at any time to change your configuration.
+You can re-run the setup script at any time to change your configuration (`./setup.sh`, `setup.bat`, or `.\setup.ps1`).
 
-### 3. Create a Task Specification
+### 3. Using as a Skill in Coding Agents (Recommended)
+
+The easiest way to use LLM Council is as a skill within your coding agent (Codex, Claude, etc.). The agent will:
+
+1. **Interview you** to understand your task through interactive questions
+2. **Build the specification** automatically from your answers
+3. **Launch the council** and display the web UI
+4. **Return the final plan** for your review and approval
+
+Simply invoke the skill from within your coding agent:
+
+```bash
+# In your coding agent session
+/llm-council
+```
+
+Or ask your agent directly:
+
+```
+"Can you help me plan this feature using the LLM council?"
+"I need multiple AI perspectives on how to implement this"
+```
+
+The agent handles all the complexity - spec creation, council execution, and result integration - automatically.
+
+## Manual Council Invocation
+
+If you prefer direct control, you can manually create task specifications and run the council from the command line.
+
+### Create a Task Specification
 
 Create a JSON file describing what you want to plan:
 
@@ -132,7 +172,7 @@ You can override the default agents directly in your task spec:
 }
 ```
 
-### 4. Run a Council
+### Run a Council
 
 ```bash
 python scripts/llm_council.py run --spec task.json
@@ -175,7 +215,7 @@ python scripts/llm_council.py ui --run-dir llm-council/runs/TIMESTAMP-TASK
 python scripts/llm_council.py configure [--config PATH]
 ```
 
-Equivalent to running `./setup.sh`
+Equivalent to running the setup script (`./setup.sh`, `setup.bat`, or `.\setup.ps1`)
 
 ## Web UI
 
@@ -418,7 +458,7 @@ python scripts/llm_council.py run --spec task.json --out plan.md
 
 ### "Models not configured" Error
 
-Run `./setup.sh` to configure your agents.
+Run the setup script (`./setup.sh`, `setup.bat`, or `.\setup.ps1`) to configure your agents.
 
 ### Planner Timed Out
 
