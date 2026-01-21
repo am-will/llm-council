@@ -1,0 +1,17 @@
+{
+  "errors": [],
+  "final_plan": "",
+  "judge": {
+    "errors": [],
+    "status": "unknown",
+    "summary": ""
+  },
+  "phase": "complete",
+  "planners": [],
+  "run_id": "20260120-ui-switcher-flow-test",
+  "task_brief": "",
+  "timestamps": {
+    "started_at": "",
+    "updated_at": "2026-01-20T18:51:54.159755+00:00"
+  }
+}
