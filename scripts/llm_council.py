@@ -250,7 +250,6 @@ def _build_command_and_input(config: AgentConfig, prompt: str) -> Tuple[List[str
             "claude",
             "--output-format",
             "json",
-            "--skip-git-repo-check",
             "--model",
             model,
             "--max-turns",
@@ -268,7 +267,7 @@ def _build_command_and_input(config: AgentConfig, prompt: str) -> Tuple[List[str
             None,
         )
     if kind == "opencode":
-        args = ["opencode", "run", "--skip-git-repo-check"]
+        args = ["opencode", "run"]
         args.extend(config.extra_args)
         if config.model:
             args.extend(["--model", config.model])
